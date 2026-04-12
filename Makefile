@@ -1,12 +1,12 @@
 NAME = push_swap
 LIBFT = libft/libft.a
 CFLAGS = -Wall -Wextra -Werror
-SRCS = main.c 
+SRCS = main.c push_swap.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(LIBFT) $(NAME)
 
-$(LIBFT): $(OBJS)
+$(LIBFT):
 	make -C libft
 
 $(NAME): $(OBJS)
