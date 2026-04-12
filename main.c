@@ -6,7 +6,7 @@
 /*   By: amghazar <amghazar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 23:06:03 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/11 22:36:00 by amghazar         ###   ########.fr       */
+/*   Updated: 2026/04/12 19:37:11 by amghazar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 #include <stdio.h>
 #include "libft/libft.h"
 #include "push_swap.h"
+#include "merge_sort.h"
 
 int	main(int argc, char **argv)
 {
 	int	*a;
+	int	*a_copy;
 	int i;
 	int j;
 
-	a = malloc(argc - 1);
+	a = malloc(sizeof(int) * (argc - 1));
+	a_copy = malloc(sizeof(int) * (argc - 1));
 
 	i = 1;
 	j = 0;
@@ -32,18 +35,27 @@ int	main(int argc, char **argv)
 		j++;
 		i++;
 	}
-
-	// rotate(&a, argc - 1);
-	reverse_rotate(&a, argc - 1);
 	i = 0;
 	while (i < argc - 1)
 	{
-		printf("%d ", a[i]);
+		a_copy[i] = a[i];
+		i++;
+	}
+	
+	// rotate(&a, argc - 1);
+	// reverse_rotate(&a, argc - 1);
+	// merge_sort(&a_copy, argc - 1);
+	i = 0;
+	while (i < argc - 1)
+	{
+		printf("\n%d ", (merge_sort(&a_copy, argc - 1))[i]);
 		i++;
 	}
 	// get stack a as int *arr
 	// hasError() -> not integers, integers outside the valid range, or duplicate values
 	//
+	free(a);
+	free(a_copy);
 }
 
 /*

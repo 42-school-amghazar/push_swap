@@ -1,7 +1,7 @@
 NAME = push_swap
 LIBFT = libft/libft.a
 CFLAGS = -Wall -Wextra -Werror
-SRCS = main.c push_swap.c
+SRCS = main.c push_swap.c merge_sort.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(LIBFT) $(NAME)
