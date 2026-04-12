@@ -6,7 +6,7 @@
 /*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 23:23:07 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/12 22:06:28 by monika           ###   ########.fr       */
+/*   Updated: 2026/04/12 22:17:41 by monika           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,16 @@ void	push(int *stack1,int *stack2, int *size1, int *size2)
 	stack1[*size1 - 1] = temp;
 }
 
-void	rotate(int **stack, int size)
+void	reverse_rotate(int **stack, int size)
 {
 	int	last;
 	int	i;
 
+	if (size < 2)
+		return ;
 	last = (*stack)[size - 1];
 	i = size - 1;
-	while (i >= 0)
+	while (i > 0)
 	{
 		(*stack)[i] = (*stack)[i - 1];
 		i--;
@@ -51,11 +53,13 @@ void	rotate(int **stack, int size)
 	(*stack)[0] = last;
 }
 
-void	reverse_rotate(int **stack, int size)
+void	rotate(int **stack, int size)
 {
 	int	first;
 	int	i;
 
+	if (size < 2)
+		return ;
 	first = (*stack)[0];
 	i = 0;
 	while (i < size - 1)
