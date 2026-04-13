@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 23:23:07 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/12 22:17:41 by monika           ###   ########.fr       */
+/*   Updated: 2026/04/13 18:01:25 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	swap(int *stack, int size)
 {
 	int	temp;
-	
+
 	if (size < 2)
 		return ;
 	temp = stack[size - 1];
@@ -24,9 +24,9 @@ void	swap(int *stack, int size)
 	stack[size - 2] = temp;
 }
 
-void	push(int *stack1,int *stack2, int *size1, int *size2)
+void	push(int *stack1, int *stack2, int *size1, int *size2)
 {
-	int temp;
+	int	temp;
 
 	if (*size2 < 1)
 		return ;
