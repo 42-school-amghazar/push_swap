@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 23:23:07 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/13 18:01:25 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/04/15 19:07:38 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,32 @@ void	swap(int *stack, int size)
 
 	if (size < 2)
 		return ;
-	temp = stack[size - 1];
-	stack[size - 1] = stack[size -2];
-	stack[size - 2] = temp;
+	temp = stack[0];
+	stack[0] = stack[1];
+	stack[1] = temp;
 }
 
 void	push(int *stack1, int *stack2, int *size1, int *size2)
 {
-	int	temp;
+	int	i;
 
 	if (*size2 < 1)
 		return ;
-	temp = stack2[*size2 - 1];
+	i = *size1;
+	while (i > 0)
+	{
+		stack1[i] = stack1[i - 1];
+		i--;
+	}
+	stack1[0] = stack2[0];
+	i = 0;
+	while (i < *size2 - 1)
+	{
+		stack2[i] = stack2[i + 1];
+		i++;
+	}
 	(*size2)--;
 	(*size1)++;
-	stack1[*size1 - 1] = temp;
 }
 
 void	reverse_rotate(int **stack, int size)
