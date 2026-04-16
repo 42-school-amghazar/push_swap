@@ -6,27 +6,28 @@
 /*   By: amghazar <amghazar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 17:05:59 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/12 19:36:30 by amghazar         ###   ########.fr       */
+/*   Updated: 2026/04/16 23:14:22 by amghazar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
+#include "push_swap.h"
 
-int	*merge(int **array1, int **array2, int size1, int size2)
+t_number	*merge(t_number **array1, t_number **array2, int size1, int size2)
 {
-	int	*sorted_array;
+	t_number	*sorted_array;
 	int	i;
 	int	j;
 	int	k;
 
-	sorted_array = malloc(sizeof(int) * (size1 + size2));
+	sorted_array = malloc(sizeof(t_number) * (size1 + size2));
 	i = 0;
 	j = 0;
 	k = 0;
 	while (i < size1 && j < size2)
 	{
-		if ((*array1)[i] > (*array2)[j])
+		if ((*array1)[i].value > (*array2)[j].value)
 		{
 			sorted_array[k] = (*array2)[j];
 			j++;
@@ -56,11 +57,11 @@ int	*merge(int **array1, int **array2, int size1, int size2)
 	return (sorted_array);
 }
 
-int	*merge_sort(int **array, int size)
+t_number	*merge_sort(t_number **array, int size)
 {
 	int	half_size;
-	int	*array1;
-	int	*array2;
+	t_number	*array1;
+	t_number	*array2;
 	int	i;
 	int	j;
 
@@ -74,8 +75,8 @@ int	*merge_sort(int **array, int size)
 		half_size = size / 2;
 	else
 		half_size = size / 2 + 1;
-	array1 = malloc(sizeof(int) * (half_size));
-	array2 = malloc(sizeof(int) * size / 2);
+	array1 = malloc(sizeof(t_number) * (half_size));
+	array2 = malloc(sizeof(t_number) * size / 2);
 	i = 0;
 	while (i < half_size)
 	{

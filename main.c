@@ -6,7 +6,7 @@
 /*   By: amghazar <amghazar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 23:06:03 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/12 19:37:11 by amghazar         ###   ########.fr       */
+/*   Updated: 2026/04/16 23:15:45 by amghazar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@
 
 int	main(int argc, char **argv)
 {
-	int	*a;
-	int	*a_copy;
-	int i;
-	int j;
+	t_number	*a;
+	t_number	*a_copy;
+	int 		i;
+	int 		j;
 
-	a = malloc(sizeof(int) * (argc - 1));
-	a_copy = malloc(sizeof(int) * (argc - 1));
+	a = malloc(sizeof(t_number) * (argc - 1));
+	a_copy = malloc(sizeof(t_number) * (argc - 1));
 
 	i = 1;
 	j = 0;
 	while (i < argc)
 	{
-		a[j] = ft_atoi(argv[i]);
-		printf("%d ", a[j]);
+		a[j].value = ft_atoi(argv[i]);
+		printf("%d ", a[j].value);
 		j++;
 		i++;
 	}
@@ -48,7 +48,7 @@ int	main(int argc, char **argv)
 	i = 0;
 	while (i < argc - 1)
 	{
-		printf("\n%d ", (merge_sort(&a_copy, argc - 1))[i]);
+		printf("\n%d ", (merge_sort(&a_copy, argc - 1))[i].value);
 		i++;
 	}
 	// get stack a as int *arr

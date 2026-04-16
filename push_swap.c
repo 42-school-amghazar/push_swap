@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amghazar <amghazar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 23:23:07 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/15 19:07:38 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/04/16 22:52:39 by amghazar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stdio.h"
 #include "libft/libft.h"
+#include "push_swap.h"
 
-void	swap(int *stack, int size)
+void	swap(t_number *stack, int size)
 {
-	int	temp;
+	t_number	temp;
 
 	if (size < 2)
 		return ;
@@ -24,7 +25,7 @@ void	swap(int *stack, int size)
 	stack[1] = temp;
 }
 
-void	push(int *stack1, int *stack2, int *size1, int *size2)
+void	push(t_number *stack1, t_number *stack2, int *size1, int *size2)
 {
 	int	i;
 
@@ -47,10 +48,10 @@ void	push(int *stack1, int *stack2, int *size1, int *size2)
 	(*size1)++;
 }
 
-void	reverse_rotate(int **stack, int size)
+void	reverse_rotate(t_number **stack, int size)
 {
-	int	last;
-	int	i;
+	t_number	last;
+	int			i;
 
 	if (size < 2)
 		return ;
@@ -64,10 +65,10 @@ void	reverse_rotate(int **stack, int size)
 	(*stack)[0] = last;
 }
 
-void	rotate(int **stack, int size)
+void	rotate(t_number **stack, int size)
 {
-	int	first;
-	int	i;
+	t_number	first;
+	int			i;
 
 	if (size < 2)
 		return ;
