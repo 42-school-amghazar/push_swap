@@ -6,7 +6,7 @@
 /*   By: amghazar <amghazar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 23:06:03 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/16 23:15:45 by amghazar         ###   ########.fr       */
+/*   Updated: 2026/04/26 19:51:29 by amghazar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,14 @@ int	main(int argc, char **argv)
 {
 	t_number	*a;
 	t_number	*a_copy;
+	t_number	*b;
 	int 		i;
 	int 		j;
+	t_number	*sorted_stack;
 
 	a = malloc(sizeof(t_number) * (argc - 1));
 	a_copy = malloc(sizeof(t_number) * (argc - 1));
+	b = malloc(sizeof(t_number) * (argc - 1));
 
 	i = 1;
 	j = 0;
@@ -41,19 +44,32 @@ int	main(int argc, char **argv)
 		a_copy[i] = a[i];
 		i++;
 	}
-	
-	// rotate(&a, argc - 1);
-	// reverse_rotate(&a, argc - 1);
-	// merge_sort(&a_copy, argc - 1);
+	sorted_stack = merge_sort(&a_copy, argc - 1);
 	i = 0;
 	while (i < argc - 1)
 	{
-		printf("\n%d ", (merge_sort(&a_copy, argc - 1))[i].value);
+		printf("\n%d ", sorted_stack[i].value);
+		// printf("%d ", a[i].value);
 		i++;
 	}
-	// get stack a as int *arr
+	set_sorted_indexes(&a, &sorted_stack, argc - 1);
+	i = 0;
+	while (i < argc - 1)
+	{
+		// printf("\n%d ", a[i].value);
+		printf("value %d, index %d\n", a[i].value, a[i].index);
+		i++;
+	}
 	// hasError() -> not integers, integers outside the valid range, or duplicate values
-	//
+	push_swap(&a, &b, argc - 1);
+
+	i = 0;
+	while (i < argc - 1)
+	{
+		// printf("\n%d ", a[i].value);
+		printf("value %d, index %d\n", a[i].value, a[i].index);
+		i++;
+	}
 	free(a);
 	free(a_copy);
 }
